@@ -5,7 +5,7 @@ O projeto é sobre lixeiras inteligente que, ao rece um item descartado, irá di
 
 ## Instalação
 
-Após clonar o repositório, executar o comando ```npm install```
+Após clonar o repositório, acessar a pasta e executar o comando ```npm install```
 
 ## Pós instalação
 
@@ -14,7 +14,7 @@ Após clonar o repositório, executar o comando ```npm install```
 
 ## Execução
 
-Para executar a aplicação executar o comando ```npm start```
+Para executar a aplicação executar o comando ```npm run dev```
 
 ## Acessando
 

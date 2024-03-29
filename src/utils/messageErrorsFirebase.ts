@@ -7,9 +7,11 @@ export const translateMessageErrorToPTBR = (errorCode:string) => {
     case 'auth/invalid-action-code':
       return 'O código da ação é inválido. Isso pode acontecer se o código estiver malformado ou já tiver sido usado.';
     case 'auth/user-disabled':
-      return 'O usuário correspondente à credencial fornecida foi desativado.';
+      // return 'O usuário correspondente à credencial fornecida foi desativado.';
+      return 'O usuário não corresponde à nenhuma credencial ou foi desativado.';
     case 'auth/user-not-found':
-      return 'O usuário não correponde à nenhuma credencial.';
+      // return 'O usuário não corresponde à nenhuma credencial.';
+      return 'O usuário não corresponde à nenhuma credencial ou foi desativado.';
     case 'auth/weak-password':
       return 'A senha é muito fraca.';
     case 'auth/email-already-in-use':

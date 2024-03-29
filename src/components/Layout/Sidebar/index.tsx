@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Divider, Drawer, useMediaQuery } from '@mui/material';
 import screens from '../../../screens/Admin';
 import NavLink from '../NavLink';
-import useStyles from './styles';
+import { Img } from './styles';
 
 interface Props {
   open: boolean,
@@ -10,7 +10,6 @@ interface Props {
 }
 
 export const Sidebar: React.FC<Props> = ({ open, onClose }) => {
-  const classes = useStyles();
   const lgUp = useMediaQuery((theme: any) => theme.breakpoints.up('lg'), {
     defaultMatches: true,
     noSsr: false
@@ -31,7 +30,7 @@ export const Sidebar: React.FC<Props> = ({ open, onClose }) => {
           justifyContent: 'center',
           py: 2
         }}>
-          <img src='/logo.png' className={classes.logo} alt="Cervac store" />
+          <Img src='/logo.png' alt="EcoPoint" />
         </Box>
         <Divider
           sx={{

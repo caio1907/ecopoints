@@ -1,7 +1,5 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { styled } from "@mui/material/styles";
 
-export default makeStyles((theme) => ({
-  logo: {
-    width: '10rem'
-  }
+export const Img = styled('img')(() => ({
+  width: '10rem'
 }));
