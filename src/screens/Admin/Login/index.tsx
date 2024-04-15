@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Box, Button, Container, TextField } from '@mui/material';
 import { setLoading } from '../../../utils/loadingState';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { toast } from 'react-toastify';
@@ -8,6 +7,8 @@ import { translateMessageErrorToPTBR } from '../../../utils/messageErrorsFirebas
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { redirect } from 'react-router-dom';
+import recycleImage from '../../../assets/reciclagem.svg';
+import './style.css';
 
 interface IData {
   email: string,
@@ -52,61 +53,34 @@ const Login: React.FC = () => {
     })
   }
 
+  const handleChangeInput = (event:React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.currentTarget;
+    formik.setFieldValue(name, value);
+  }
+
   return (
-    <Box
-      component='main'
-      sx={{
-        alignItems: 'center',
-        display: 'flex',
-        flexGrow: 1,
-        minHeight: '100%',
-        height: '100vh'
-      }}
-    >
-      <Container maxWidth='sm'>
-        <form onSubmit={formik.handleSubmit}>
-          <TextField
-            error={Boolean(formik.touched.email && formik.errors.email)}
-            fullWidth
-            helperText={formik.touched.email && formik.errors.email}
-            label='E-mail'
-            margin='normal'
-            name='email'
-            onBlur={formik.handleBlur}
-            onChange={formik.handleChange}
-            type='email'
-            value={formik.values.email}
-            variant='outlined'
-            autoFocus
-          />
-          <TextField
-            error={Boolean(formik.touched.password && formik.errors.password)}
-            fullWidth
-            helperText={formik.touched.password && formik.errors.password}
-            label='Senha'
-            margin='normal'
-            name='password'
-            onBlur={formik.handleBlur}
-            onChange={formik.handleChange}
-            type='password'
-            value={formik.values.password}
-            variant='outlined'
-          />
-          <Box sx={{ py: 2 }}>
-            <Button
-              color='primary'
-              disabled={formik.isSubmitting}
-              fullWidth
-              size='large'
-              type='submit'
-              variant='contained'
-            >
-              Entrar
-            </Button>
-          </Box>
-        </form>
-      </Container>
-    </Box>
+    <form className="main-login" onSubmit={formik.handleSubmit}>
+      <div className="left-login">
+        <h1>Faça o seu login <br/> E junte-se a esse movimento</h1>
+        <img src={recycleImage} alt="reciclagem animação"/>
+      </div>
+      <div className="center"></div>
+      <div className="right-login"></div>
+      <div className="card-login">
+        <h1>LOGIN</h1>
+        <div className="textfield">
+          <label htmlFor="email">Usuário</label>
+          <input type="text" name="email" placeholder="Usuário" onChange={handleChangeInput}/>
+          {formik.errors.email && <span>{formik.touched.email}</span>}
+        </div>
+        <div className="textfield">
+          <label htmlFor="password">Senha</label>
+          <input type="password" name="password" placeholder="Senha" onChange={handleChangeInput}/>
+          {formik.errors.password && <span>{formik.touched.password}</span>}
+        </div>
+        <button className="btn-login" type="submit">Login</button>
+      </div>
+    </form>
   )
 }
 export default Login
