@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+body {
+  background-color: #EAF6EA;
+}
+header {
+  padding: 10px 70px;
+  background-color: #759073;
+}
+.navegacao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navegacao .logo {
+  width: 40px;
+  color: #EAF6EA;
+}
+.navegacao ul {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+.navegacao ul li a {
+  color: #EAF6EA;
+  font-weight: 600;
+  top: 25%;
+  width: 25%;
+  padding-bottom: 4px;
+  transition: all 0.5s ease-in-out;
+  text-decoration: none;
+}
+.navegacao ul li a:hover {
+  color: #FAFFF9;
+  border-bottom: 1px solid #FAFFF9;
+}
+.sobreoprojeto {
+  width: 100%; height: 45vh;
+  background-image: url(img/3334911-desktop-source-code-and-wallpaper-by-coding-and-programming-grátis-foto.jpg);
+  background-attachment: fixed;
+}
+.sobreoprojeto h1 {
+  font-size: 2rem; color: #EAF6EA;
+  font-family: "Poppins", sans-serif;
+  position: absolute; top: 25%; left: 10%;
+  z-index: 0;
+  width: 25%;
+}
+.sobreoprojeto h1 p {
+  font-size: large;
+}
+#carouselExampleInterval {
+  width: 50%; margin: auto;
+}
+#caixa4 {
+  display: flex;
+}
+.caixa4 img {
+  width: 50%; height: 50%;
+}
+
+.container{
+  display: flex; align-items: center; justify-content:space-around; flex-wrap: wrap;
+  height: 80vh; margin-bottom: 20px;
+}
+.card{
+  background-color: #2fd186;
+  overflow: hidden;
+  border-radius: 16px;
+  width: 23%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+.card .img{
+  width: 300px; height: 170px;
+  transition: 0.5s;
+}
+.card:hover .img{
+  width: 350px;
+  transition: 0.5s;
+}
+.card .content{
+  padding: 0 20px;
+  overflow: hidden;
+  height: 0;
+  transition: 0.5s;
+}
+.card:hover .content{
+  padding: 20px;
+  height: 190px;
+  transition: 0.5s;
+}
+.card .content .desc{
+  font-size: 10pt;
+}
+.card .arrow{
+  padding-bottom: 10px; font-size: 20px;
+}
+.card:hover .arrow{
+  opacity: 0;
+}
+.container .card .content p{
+  font-size: 12px; font-family: "Poppins", sans-serif;
+}
+.container h2{
+  color: black; text-align: center; margin: auto; width: 100%;
+  font-size: 2rem; font-family: "Poppins", sans-serif;
+}
