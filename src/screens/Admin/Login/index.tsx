@@ -59,26 +59,24 @@ const Login: React.FC = () => {
   }
 
   return (
-    <form className="main-login" onSubmit={formik.handleSubmit}>
-      <div className="left-login">
-        <h1>Faça o seu login <br/> E junte-se a esse movimento</h1>
-        <img src={recycleImage} alt="reciclagem animação"/>
+    <form className='main-login' onSubmit={formik.handleSubmit}>
+      <div className='left-login'>
+        <h1>Faça o seu login<br/>E junte-se a esse movimento</h1>
+        <img src={recycleImage} alt='EcoPoint'/>
       </div>
-      <div className="center"></div>
-      <div className="right-login"></div>
-      <div className="card-login">
+      <div className='card-login'>
         <h1>LOGIN</h1>
-        <div className="textfield">
-          <label htmlFor="email">Usuário</label>
-          <input type="text" name="email" placeholder="Usuário" onChange={handleChangeInput}/>
-          {formik.errors.email && <span>{formik.touched.email}</span>}
+        <div className='textfield'>
+          <label htmlFor='email'>Usuário</label>
+          <input type='text' name='email' placeholder='Usuário' onChange={handleChangeInput}/>
+          {formik.errors.email && <span>{formik.errors.email}</span>}
         </div>
-        <div className="textfield">
-          <label htmlFor="password">Senha</label>
-          <input type="password" name="password" placeholder="Senha" onChange={handleChangeInput}/>
-          {formik.errors.password && <span>{formik.touched.password}</span>}
+        <div className='textfield'>
+          <label htmlFor='password'>Senha</label>
+          <input type='password' name='password' placeholder='Senha' onChange={handleChangeInput}/>
+          {formik.errors.password && <span>{formik.errors.password}</span>}
         </div>
-        <button className="btn-login" type="submit">Login</button>
+        <button className='button' type='submit'>Login</button>
       </div>
     </form>
   )
