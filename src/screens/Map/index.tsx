@@ -1,24 +1,30 @@
 import React from 'react';
 import './style.css';
-import logoEcoPoint from '../../assets/Logo EcoPoints.png';
+import mapa from '../../assets/Capturamapa.png';
+import * as Icon from '@mui/icons-material'
+import { IconButton } from '@mui/material';
+import Navigation from '../../components/Navigation';
+import Footer from '../../components/Footer';
 
 const Map: React.FC = () => {
   return (
     <>
-      <header>
-        <nav className="navegacao">
-          <a href="#"><img src={logoEcoPoint} alt="Ecopoint" className="logo"/></a>
-          <ul>
-              <li><a href="#">Login</a></li>
-              <li><a href="#">Cadastro</a></li>
-              <li><a href="#">Mapa da Localização</a></li>
-          </ul>
-        </nav>
-      </header>
+      <Navigation/>
       <main>
-        <h1>Pontuação</h1>
-        <p>Confira aqui a sua Pontuação e onde encontrar as nossas EcoPoints</p>
+        <h2>Saiba onde encontrar nossas lixeiras</h2>
+        <div>
+          <select name="estado" id="">
+            <option value="PE">Pernambuco</option>
+          </select>
+          <select name="cidade" id="">
+            <option value="Rec">Recife</option>
+            <option value="Ol">Olinda</option>
+          </select>
+          <IconButton><Icon.Search/></IconButton>
+        </div>
+        <a href="#"><img src={mapa} alt="mapa" className="mapa"/></a>
       </main>
+      <Footer/>
     </>
   )
 }

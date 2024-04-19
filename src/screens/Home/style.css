@@ -1,4 +1,4 @@
-* {
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -6,71 +6,77 @@
   text-decoration: none;
   font-family: sans-serif;
 }
-body {
+body{
   background-color: #EAF6EA;
 }
-header {
-  padding: 10px 70px;
-  background-color: #759073;
-}
-.navegacao {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.navegacao .logo {
-  width: 40px;
+
+.icone-usuario a{
   color: #EAF6EA;
+  font-size: 20px;
+  margin-top: 0.2;
+  position: absolute;
+  right: 2.8%;
+  bottom: 26%;
 }
-.navegacao ul {
-  display: flex;
-  align-items: center;
-  gap: 60px;
-}
-.navegacao ul li a {
-  color: #EAF6EA;
-  font-weight: 600;
-  top: 25%;
-  width: 25%;
-  padding-bottom: 4px;
-  transition: all 0.5s ease-in-out;
-  text-decoration: none;
-}
-.navegacao ul li a:hover {
+.icone-usuario a:hover{
   color: #FAFFF9;
   border-bottom: 1px solid #FAFFF9;
 }
-.sobreoprojeto {
-  width: 100%; height: 45vh;
-  background-image: url(img/3334911-desktop-source-code-and-wallpaper-by-coding-and-programming-grátis-foto.jpg);
+/* fim do cabeçalho */
+.texto-caixa{
+  margin-top: 3%;
+}
+.sobreoprojeto{
+  width: 100%;
+  height: 45vh;
+  background-image: url(/src/assets/WhatsApp\ Image\ 2024-04-18\ at\ 22.20.05.jpeg);
   background-attachment: fixed;
 }
-.sobreoprojeto h1 {
+.sobreoprojeto h1{
   font-size: 2rem; color: #EAF6EA;
-  font-family: "Poppins", sans-serif;
-  position: absolute; top: 25%; left: 10%;
+  font-weight: 400;
+  margin-left: 0.3%;
+  position: absolute; top: 19.7%; left: 10%;
   z-index: 0;
-  width: 25%;
+  width: 30%;
 }
-.sobreoprojeto h1 p {
+.sobreoprojeto p{
+  font-size: 1.1rem; color: #EAF6EA;
+  font-weight: 400;
+  margin-left: 0.3%;
+  position: absolute; top: 26%; left: 10%;
+  z-index: 0;
+  width: 30%;
+}
+.sobreoprojeto h1 p{
+  margin-left: 0.3%;
   font-size: large;
 }
-#carouselExampleInterval {
+.texto-caixa{
+  margin-left: 21.4%;
+  width: 60%;
+  text-align: justify;
+}
+#carouselExampleInterval{
   width: 50%; margin: auto;
+  z-index: 0;
 }
-#caixa4 {
-  display: flex;
-}
-.caixa4 img {
-  width: 50%; height: 50%;
+.carousel-item img{
+  margin-left: 4.5%;
+  width: 30%;
 }
 
+/* parte dos cards */
 .container{
+  display: flex; align-items: center; justify-content:space-around; flex-wrap: wrap;
+  height: 53vh; margin-bottom: 20px;
+}
+.container:hover{
   display: flex; align-items: center; justify-content:space-around; flex-wrap: wrap;
   height: 80vh; margin-bottom: 20px;
 }
 .card{
-  background-color: #2fd186;
+  background-color: #537052;
   overflow: hidden;
   border-radius: 16px;
   width: 23%;
@@ -97,18 +103,27 @@ header {
   transition: 0.5s;
 }
 .card .content .desc{
-  font-size: 10pt;
+  font-size: 30pt;
+  text-align: justify;
+  color: #EAF6EA;
 }
 .card .arrow{
-  padding-bottom: 10px; font-size: 20px;
+  padding-top: 3.5px;
+  padding-bottom: 7px;
+  font-size: 20px;
+  color: #EAF6EA;
+}
+.content .title{
+  color: #EAF6EA;
 }
 .card:hover .arrow{
   opacity: 0;
 }
 .container .card .content p{
-  font-size: 12px; font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  color: #EAF6EA;
 }
 .container h2{
   color: black; text-align: center; margin: auto; width: 100%;
-  font-size: 2rem; font-family: "Poppins", sans-serif;
+  font-size: 2rem;
 }

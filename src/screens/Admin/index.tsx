@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Icon from '@mui/icons-material'
-import Login from './Login';
-import Register from './Register';
+import Dashboard from './Dashboard';
+import Perfil from './Dashboard/Perfil';
 
 export interface ScreenProps {
   path: string
@@ -12,16 +12,22 @@ export interface ScreenProps {
 
 const screens: ScreenProps[] = [
   {
-    name: 'Login',
-    path: '/login',
-    component: <Login />,
+    name: 'Dashboard',
+    path: '/',
+    component: <Dashboard />,
     icon: <Icon.Home />
   },
   {
-    name: 'Registrar',
-    path: '/registrar',
-    component: <Register />,
-    icon: <Icon.PersonAddAlt1 />
+    name: 'Alteração de Perfil',
+    path: '/',
+    component: <Dashboard />,
+    icon: <Icon.AccountCircle />
+  },
+  {
+    name: 'Histórico de Pontuação',
+    path: '/',
+    component: <Dashboard />,
+    icon: <Icon.History />
   }
 ];
 export default screens;
