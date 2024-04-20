@@ -1,7 +1,8 @@
 import React from 'react';
 import * as Icon from '@mui/icons-material'
 import Dashboard from './Dashboard';
-import Perfil from './Dashboard/Perfil';
+import Profile from './Profile';
+import History from './History';
 
 export interface ScreenProps {
   path: string
@@ -19,14 +20,14 @@ const screens: ScreenProps[] = [
   },
   {
     name: 'Alteração de Perfil',
-    path: '/',
-    component: <Dashboard />,
+    path: '/perfil',
+    component: <Profile />,
     icon: <Icon.AccountCircle />
   },
   {
     name: 'Histórico de Pontuação',
-    path: '/',
-    component: <Dashboard />,
+    path: '/historico',
+    component: <History />,
     icon: <Icon.History />
   }
 ];

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
-import { AppBar, Box, IconButton, Toolbar, Tooltip } from '@mui/material';
+import { AppBar, Box, IconButton, Toolbar, Tooltip, Typography } from '@mui/material';
 import * as Icon from '@mui/icons-material'
+import { loadCurrentUser } from '../../../utils/user';
+import { User } from 'firebase/auth';
 
 interface Props {
   logOut: () => void
@@ -17,6 +19,11 @@ const Navbar: React.FC<Props> = ({
   logOut,
   sidebarOnOpen
 }) => {
+  const [user, setUser] = useState<User>();
+
+  useEffect(() => {
+    loadCurrentUser().then(result => result && setUser(result));
+  }, []);
   return (
     <>
       <Root
@@ -48,6 +55,10 @@ const Navbar: React.FC<Props> = ({
           >
             <Icon.Menu fontSize='small' />
           </IconButton>
+          <Box display='flex' alignItems='center' mr={1}>
+            <Icon.AccountCircle color='info'/>
+          </Box>
+          <Typography component='h2' color='#000'>{user?.email}</Typography>
           <Box sx={{ flexGrow: 1 }} />
           <Tooltip title='Sair'>
             <IconButton sx={{ ml: 1 }} onClick={logOut}>

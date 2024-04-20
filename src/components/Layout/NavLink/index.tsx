@@ -24,9 +24,11 @@ const NavLink:React.FC<ScreenProps> = ({
         startIcon={icon}
         disableRipple
         sx={{
-          backgroundColor: isRouteActive ? 'rgba(255,255,255, 0.08)' : '',
+          // backgroundColor: isRouteActive ? 'rgba(255,255,255, 0.08)' : '',
+          backgroundColor: '#274001',
+          color: '#EAF6EA',
           borderRadius: 1,
-          color: isRouteActive ? 'secondary.main' : 'neutral.300',
+          // color: isRouteActive ? 'secondary.main' : 'neutral.300',
           fontWeight: isRouteActive ? 'fontWeightBold' :'',
           justifyContent: 'flex-start',
           px: 3,
@@ -34,7 +36,8 @@ const NavLink:React.FC<ScreenProps> = ({
           textTransform: 'none',
           width: '100%',
           '& .MuiButton-startIcon': {
-            color: isRouteActive ? 'secondary.main' : 'neutral.400'
+            // color: isRouteActive ? 'secondary.main' : 'neutral.400'
+            color: '#EAF6EA'
           },
           '&:hover': {
             backgroundColor: 'rgba(255,255,255, 0.08)'
