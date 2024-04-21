@@ -13,7 +13,7 @@ import {
   Route,
   Navigate
 } from 'react-router-dom';
-import screens from './screens';
+import screens from './screens/Admin';
 import Layout from './components/Layout';
 import Home from './screens/Home';
 import Register from './screens/Admin/Register';
@@ -64,6 +64,7 @@ const App: React.FC = () => {
                   element={screen.component}
                 />
               ))}
+              <Route path='*' element={<Navigate to='/' replace />}/>
             </Routes>
           </Layout>
         </>

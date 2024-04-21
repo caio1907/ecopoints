@@ -3,6 +3,7 @@ import { Box, Divider, Drawer, useMediaQuery } from '@mui/material';
 import screens from '../../../screens/Admin';
 import NavLink from '../NavLink';
 import { Img } from './styles';
+import logo from '../../../assets/Logo EcoPoints.png';
 
 interface Props {
   open: boolean,
@@ -21,7 +22,8 @@ export const Sidebar: React.FC<Props> = ({ open, onClose }) => {
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          height: '100%'
+          height: '100%',
+          backgroundColor: '#537052'
         }}
       >
         <Box sx={{
@@ -30,7 +32,7 @@ export const Sidebar: React.FC<Props> = ({ open, onClose }) => {
           justifyContent: 'center',
           py: 2
         }}>
-          <Img src='/logo.png' alt="EcoPoint" />
+          <Img src={logo} alt='EcoPoints' sx={{maxWidth: 60}} />
         </Box>
         <Divider
           sx={{
