@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
       <div className="footer-copy">
-        <strong>© EcoPoint - 2024</strong>
+        <strong>© EcoPoints - 2024</strong>
       </div>
     </footer>
   )

@@ -32,7 +32,7 @@ export const Sidebar: React.FC<Props> = ({ open, onClose }) => {
           justifyContent: 'center',
           py: 2
         }}>
-          <Img src={logo} alt='EcoPoint' sx={{maxWidth: 60}} />
+          <Img src={logo} alt='EcoPoints' sx={{maxWidth: 60}} />
         </Box>
         <Divider
           sx={{
