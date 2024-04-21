@@ -68,12 +68,12 @@ const Login: React.FC = () => {
         <h1>LOGIN</h1>
         <div className='textfield'>
           <label htmlFor='email'>Usuário</label>
-          <input type='text' name='email' placeholder='Usuário' onChange={handleChangeInput}/>
+          <input type='text' name='email' placeholder='Usuário' onChange={handleChangeInput} autoComplete='email'/>
           {formik.errors.email && <span>{formik.errors.email}</span>}
         </div>
         <div className='textfield'>
           <label htmlFor='password'>Senha</label>
-          <input type='password' name='password' placeholder='Senha' onChange={handleChangeInput}/>
+          <input type='password' name='password' placeholder='Senha' onChange={handleChangeInput} autoComplete='current-password'/>
           {formik.errors.password && <span>{formik.errors.password}</span>}
         </div>
         <button className='button' type='submit'>Login</button>
