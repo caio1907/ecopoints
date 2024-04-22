@@ -49,7 +49,7 @@ const Home: React.FC = () => {
           <Card sx={{maxWidth: 300, backgroundColor: "#759073"}}>
           <CardMedia
             sx={{height: '200px'}}
-            image="/src/assets/cd4.png"
+            image="/images/cd4.png"
             title="Inspiração"
           />
           <CardContent sx={{backgroundColor: "#759073", color: '#EAF6EA'}}>
@@ -64,7 +64,7 @@ const Home: React.FC = () => {
           <Card sx={{maxWidth: 300, backgroundColor: "#759073"}}>
             <CardMedia
               sx={{height: '200px'}}
-              image="/src/assets/cd2.png"
+              image="/images/cd2.png"
               title="Protótipo"
             />
             <CardContent sx={{backgroundColor: "#759073", color: '#EAF6EA'}}>
@@ -79,7 +79,7 @@ const Home: React.FC = () => {
           <Card sx={{maxWidth: 300, backgroundColor: "#759073"}}>
             <CardMedia
               sx={{height: '200px'}}
-              image="/src/assets/cd1.png"
+              image="/images/cd1.png"
               title="Desenvolvimento Web"
             />
             <CardContent sx={{backgroundColor: "#759073", color: '#EAF6EA'}}>
