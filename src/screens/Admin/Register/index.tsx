@@ -57,7 +57,7 @@ const Register: React.FC = () => {
     onSubmit: (values) => signIn(values)
   });
   const signIn = (data: IData) => {
-
+    console.log(data);
   }
 
   const handleChangeInput = (event:React.ChangeEvent<HTMLInputElement>) => {
