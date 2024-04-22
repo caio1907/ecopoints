@@ -3,15 +3,17 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import recycleImage from '../../../assets/reciclagem.svg';
 import '../Login/style.css';
+import { toast } from 'react-toastify';
+import { setLoading } from '../../../utils/loadingState';
 
-interface IData {
-  email: string,
-  password: string,
-  name: String,
-  dataNasc: Date,
-  sexo: String,
-  phone: String,
-}
+// interface IData {
+//   email: string,
+//   password: string,
+//   name: String,
+//   dataNasc: Date,
+//   sexo: String,
+//   phone: String,
+// }
 
 const Register: React.FC = () => {
   const formik = useFormik({
@@ -20,7 +22,7 @@ const Register: React.FC = () => {
       password: '',
       passwordConf: '',
       name: '',
-      dataNasc: new Date(),
+      dataNasc: '',
       sexo: '',
       phone: '',
     },
@@ -43,7 +45,7 @@ const Register: React.FC = () => {
         .max(255)
         .required('Nome é obrigatório'),
       dataNasc: Yup
-        .date()
+        .string()
         .required('Data de Nascimento é obrigatória'),
       sexo: Yup
         .string()
@@ -54,10 +56,15 @@ const Register: React.FC = () => {
         .max(255)
         .required('Número de telefone é obrigatório'),
     }),
-    onSubmit: (values) => signIn(values)
+    onSubmit: () => signIn()
   });
-  const signIn = (data: IData) => {
-    console.log(data);
+  const signIn = () => {
+    setLoading(true)
+    setTimeout(() => {
+      toast.success('Cadastro realizado com sucesso');
+      formik.resetForm();
+      setLoading(false);
+    }, 1000);
   }
 
   const handleChangeInput = (event:React.ChangeEvent<HTMLInputElement>) => {
@@ -76,37 +83,37 @@ const Register: React.FC = () => {
         <h1>CADASTRE-SE</h1>
         <div className='textfield'>
           <label htmlFor='name'>Nome</label>
-          <input type='text' name='name' placeholder='Nome completo' onChange={handleChangeInput}/>
+          <input type='text' value={formik.values.name} name='name' placeholder='Nome completo' onChange={handleChangeInput}/>
           {formik.errors.name && <span>{formik.errors.name}</span>}
         </div>
         <div className='textfield'>
           <label htmlFor='dataNasc'>Data de Nascimento</label>
-          <input type='text' name='dataNasc' placeholder='01/01/2000' onChange={handleChangeInput}/>
+          <input type='text' value={formik.values.dataNasc} name='dataNasc' placeholder='01/01/2000' onChange={handleChangeInput}/>
           {/* {formik.errors.dataNasc && <span>{formik.errors.dataNasc.getDate?.()}</span>} */}
         </div>
         <div className='textfield'>
           <label htmlFor='email'>E-mail</label>
-          <input type='text' name='email' placeholder='fulano@gmail.com' onChange={handleChangeInput} autoComplete='email'/>
+          <input type='text' value={formik.values.email} name='email' placeholder='fulano@gmail.com' onChange={handleChangeInput} autoComplete='email'/>
           {formik.errors.email && <span>{formik.errors.email}</span>}
         </div>
         <div className='textfield'>
           <label htmlFor='sexo'>Sexo</label>
-          <input type='text' name='sexo' placeholder='F/M/I' onChange={handleChangeInput}/>
+          <input type='text' value={formik.values.sexo} name='sexo' placeholder='F/M/I' onChange={handleChangeInput}/>
           {formik.errors.sexo && <span>{formik.errors.sexo}</span>}
         </div>
         <div className='textfield'>
           <label htmlFor='phone'>Telefone</label>
-          <input type='text' name='phone' placeholder='(00)00000-0000' onChange={handleChangeInput}/>
+          <input type='text' value={formik.values.phone} name='phone' placeholder='(00)00000-0000' onChange={handleChangeInput}/>
           {formik.errors.phone && <span>{formik.errors.phone}</span>}
         </div>
         <div className='textfield'>
           <label htmlFor='password'>Senha</label>
-          <input type='password' name='password' placeholder='Senha' onChange={handleChangeInput} autoComplete='current-password'/>
+          <input type='password' value={formik.values.password} name='password' placeholder='Senha' onChange={handleChangeInput} autoComplete='current-password'/>
           {formik.errors.password && <span>{formik.errors.password}</span>}
         </div>
         <div className='textfield'>
           <label htmlFor='passwordConf'>Confirme sua senha</label>
-          <input type='passwordConf' name='passwordConf' placeholder='Confirme sua senha' onChange={handleChangeInput} autoComplete='current-password'/>
+          <input type='password' value={formik.values.passwordConf} name='passwordConf' placeholder='Confirme sua senha' onChange={handleChangeInput} autoComplete='current-password'/>
           {formik.errors.passwordConf && <span>{formik.errors.passwordConf}</span>}
         </div>
         <button className='button' type='submit'>Cadastrar</button>
