@@ -18,6 +18,8 @@ import Layout from './components/Layout';
 import Home from './screens/Home';
 import Register from './screens/Admin/Register';
 import Map from './screens/Map';
+import Navigation from './components/Navigation';
+import Footer from './components/Footer';
 
 const App: React.FC = () => {
   const [logged, setLogged] = useState(false);
@@ -46,13 +48,17 @@ const App: React.FC = () => {
       <Loader />
       <ToastContainer position='bottom-right' />
       {!logged ? (
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/mapa' element={<Map />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/registrar' element={<Register />} />
-          <Route path='*' element={<Navigate to='/' replace />}/>
-        </Routes>
+        <>
+          <Navigation/>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/mapa' element={<Map />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/registrar' element={<Register />} />
+            <Route path='*' element={<Navigate to='/' replace />}/>
+          </Routes>
+          <Footer/>
+        </>
       ) : (
         <>
           <Layout {...{ logOut }}>

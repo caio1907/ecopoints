@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './style.css';
 import * as Icon from '@mui/icons-material'
 import { Box, Button, Container, FormControl, InputLabel, MenuItem, Select, Typography } from '@mui/material';
-import Navigation from '../../components/Navigation';
-import Footer from '../../components/Footer';
 import { useFormik } from 'formik';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 
@@ -37,7 +35,6 @@ const Map: React.FC = () => {
 
   return (
     <>
-      <Navigation/>
       <Container sx={{mt: '8vh'}} disableGutters>
         <Box>
           <Typography component='h2' variant='h4' mt='10vh' textAlign='center'>Saiba onde encontrar nossas lixeiras</Typography>
@@ -87,7 +84,6 @@ const Map: React.FC = () => {
           </Box>
         </Box>
       </Container>
-      <Footer/>
     </>
   )
 }
