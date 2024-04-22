@@ -76,7 +76,7 @@ const Login: React.FC = () => {
           <input type='password' name='password' placeholder='Senha' onChange={handleChangeInput} autoComplete='current-password'/>
           {formik.errors.password && <span>{formik.errors.password}</span>}
         </div>
-        <button className='button' type='submit'>Login</button>
+        <button className='button' type='submit'>Entrar</button>
       </div>
     </form>
   )
