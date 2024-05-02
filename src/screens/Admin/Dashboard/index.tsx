@@ -45,15 +45,6 @@ const Dashboard: React.FC = () => {
           />
         </Paper>
       </Grid>
-      <Grid item>
-        <Paper elevation={2} sx={{p: 3}}>
-          <h1>Legenda das Pontuções</h1>
-          <li>Metal - 15 pontos</li>
-          <li>Plastico - 10 pontos</li>
-          <li>Outros residuos - 5 pontos</li>
-          <li>Indicações - 5 pontos</li>
-        </Paper>
-      </Grid>
     </Grid>
   )
 }

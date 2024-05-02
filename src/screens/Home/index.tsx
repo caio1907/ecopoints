@@ -1,9 +1,6 @@
 import React from 'react';
 import './style.css';
-import lixeira01 from  '../../assets/Lixeira EcoPoint 01.png';
-import lixeira02 from  '../../assets/Lixeira EcoPoint 02.png';
-import lixeira03 from  '../../assets/Lixeira EcoPoint 03.png';
-import {Box, Card, CardContent, CardMedia, Typography} from '@mui/material';
+import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
 
 const Home: React.FC = () => {
   return (
@@ -28,13 +25,13 @@ const Home: React.FC = () => {
             <input type="radio" name="radio-btn" id="radio3" />
 
             <div className="slide estado-inicial">
-              <img src={lixeira01} alt="lixeira01" />
+              <img src='images/Lixeira EcoPoint 01.png' alt="lixeira01" />
             </div>
             <div className="slide">
-              <img src={lixeira02} alt="lixeira02" />
+              <img src='images/Lixeira EcoPoint 02.png' alt="lixeira02" />
             </div>
             <div className="slide">
-              <img src={lixeira03} alt="lixeira03" />
+              <img src='images/Lixeira EcoPoint 03.png' alt="lixeira03" />
             </div>
           </div>
 
@@ -45,7 +42,7 @@ const Home: React.FC = () => {
           </div>
         </div>
         <Typography component='h4' variant='h4' textAlign='center' mb={3}>EcoPoints - Desde à inspiração até a sua criação</Typography>
-        <Box display='flex' justifyContent='center' gap={3} mb={3}>
+        <Box display='flex' justifyContent='center' gap={3} mb={8}>
           <Card sx={{maxWidth: 300, backgroundColor: "#759073"}}>
           <CardMedia
             sx={{height: '200px'}}

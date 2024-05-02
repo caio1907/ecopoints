@@ -22,7 +22,7 @@ const Map: React.FC = () => {
   const [cities, setCities] = useState<string[]>([]);
 
   useEffect(() => {
-    fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
+    fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome')
       .then(response => response.json())
       .then(data => setStates(data.map((result:any) => ({UF: result.sigla, description: result.nome}))))
   }, []);
@@ -35,10 +35,10 @@ const Map: React.FC = () => {
 
   return (
     <>
-      <Container sx={{mt: '8vh'}} disableGutters>
-        <Box>
-          <Typography component='h2' variant='h4' mt='10vh' textAlign='center'>Saiba onde encontrar nossas lixeiras</Typography>
-          <Box display='flex' alignItems='center' gap={4} my={3}>
+      <Container sx={{mt: '9vh', height: '86vh'}} disableGutters>
+        <Box display='flex' flexDirection='column' gap={2}>
+          <Typography component='h2' variant='h4' textAlign='center'>Saiba onde encontrar nossas lixeiras</Typography>
+          <Box display='flex' alignItems='center' gap={4}>
             <FormControl fullWidth>
               <InputLabel id='state-select-label'>Selecione um estado</InputLabel>
               <Select
@@ -71,8 +71,8 @@ const Map: React.FC = () => {
               <Button variant='contained' endIcon={<Icon.Search/>} color='success'>Buscar</Button>
             </div>
           </Box>
-          <Box width='100%' height='50vh' mt={2}>
-            <MapContainer center={[-8.0419954,-35.0202498]} zoom={12} style={{width: '100%', height: '100%'}}>
+          <Box width='100%' height='70vh'>
+            <MapContainer center={[-8.0540764,-34.8927565]} zoom={12} style={{width: '100%', height: '100%'}}>
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

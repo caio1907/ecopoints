@@ -2,6 +2,7 @@ import React from 'react';
 import * as Icon from '@mui/icons-material'
 import Home from './Home';
 import Map from './Map';
+import Login from './Login';
 
 export interface ScreenProps {
   path: string
@@ -21,6 +22,12 @@ const screens: ScreenProps[] = [
     name: 'Localizações',
     path: '/mapa',
     component: <Map />,
+    icon: <Icon.Explore />
+  },
+  {
+    name: 'Login',
+    path: '/admin',
+    component: <Login />,
     icon: <Icon.Explore />
   }
 ];

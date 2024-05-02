@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import Loader from './components/Loader';
-import Login from './screens/Admin/Login';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from './services/firebase';
 import { loadCurrentUser } from './utils/user';
@@ -13,11 +12,9 @@ import {
   Route,
   Navigate
 } from 'react-router-dom';
-import screens from './screens/Admin';
+import screens from './screens';
+import screensAdmin from './screens/Admin';
 import Layout from './components/Layout';
-import Home from './screens/Home';
-import Register from './screens/Admin/Register';
-import Map from './screens/Map';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 
@@ -51,10 +48,13 @@ const App: React.FC = () => {
         <>
           <Navigation/>
           <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/mapa' element={<Map />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/registrar' element={<Register />} />
+            {screens.map((screen, index) => (
+              <Route
+                key={index}
+                path={screen.path}
+                element={screen.component}
+              />
+            ))}
             <Route path='*' element={<Navigate to='/' replace />}/>
           </Routes>
           <Footer/>
@@ -63,7 +63,7 @@ const App: React.FC = () => {
         <>
           <Layout {...{ logOut }}>
             <Routes>
-              {screens.map((screen, index) => (
+              {screensAdmin.map((screen, index) => (
                 <Route
                   key={index}
                   path={screen.path}

@@ -34,10 +34,6 @@ const Navigation: React.FC = () => {
           {Link('/','Home')}
           {Link('/mapa','Mapa')}
         </Box>
-        <Box display='flex' gap={2}>
-          {Link('/login','Login')}
-          {Link('/registrar','Cadastro')}
-        </Box>
       </Toolbar>
     </AppBar>
   );

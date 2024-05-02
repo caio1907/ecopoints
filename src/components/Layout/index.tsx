@@ -3,7 +3,6 @@ import { styled } from '@mui/material/styles';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import { Box, Container } from '@mui/material';
-import ReadQrCode from '../ReadQrCode';
 
 interface Props {
   children: React.ReactNode,
@@ -17,7 +16,9 @@ const Root = styled('div')(({theme}) => ({
   paddingTop: 64,
   [theme.breakpoints.up('lg')]: {
     paddingLeft: 280
-  }
+  },
+  height: '100vh',
+  backgroundColor: '#121212'
 }));
 
 const Dashboard:React.FC<Props> = ({
@@ -32,7 +33,6 @@ const Dashboard:React.FC<Props> = ({
         <Container>
           <Box sx={{ pt: 2 }}>
             {children}
-            <ReadQrCode/>
           </Box>
         </Container>
       </Root>

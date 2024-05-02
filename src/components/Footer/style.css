@@ -1,8 +1,8 @@
 footer{
+  height: 5vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #537052;
-  margin-top: 5%;
   color: #EAF6EA;
 }
