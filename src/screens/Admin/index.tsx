@@ -1,8 +1,8 @@
 import React from 'react';
 import * as Icon from '@mui/icons-material'
 import Dashboard from './Dashboard';
-import Profile from './Profile';
 import History from './History';
+import Trashes from './Trashes';
 
 export interface ScreenProps {
   path: string
@@ -19,16 +19,16 @@ const screens: ScreenProps[] = [
     icon: <Icon.Home />
   },
   {
-    name: 'Alteração de Perfil',
-    path: '/perfil',
-    component: <Profile />,
-    icon: <Icon.AccountCircle />
-  },
-  {
-    name: 'Histórico de Pontuação',
+    name: 'Relatório de itens por lixeira',
     path: '/historico',
     component: <History />,
     icon: <Icon.History />
+  },
+  {
+    name: 'Lixeiras',
+    path: '/lixeiras',
+    component: <Trashes />,
+    icon: <Icon.Delete />
   }
 ];
 export default screens;

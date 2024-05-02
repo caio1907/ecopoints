@@ -55,10 +55,7 @@ const Navbar: React.FC<Props> = ({
           >
             <Icon.Menu fontSize='small' />
           </IconButton>
-          <Box display='flex' alignItems='center' mr={1}>
-            <Icon.AccountCircle color='info'/>
-          </Box>
-          <Typography component='h2' color='#000'>{user?.email}</Typography>
+          <Typography component='span'>Bem vindo(a) {user?.displayName}</Typography>
           <Box sx={{ flexGrow: 1 }} />
           <Tooltip title='Sair'>
             <IconButton sx={{ ml: 1 }} onClick={logOut}>
