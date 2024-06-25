@@ -1,7 +1,7 @@
 import { Box, Button, ListItem } from '@mui/material';
 import React from 'react';
 import { NavLink as NavLinkRouterDom, useLocation } from 'react-router-dom';
-import { ScreenProps } from '../../../screens';
+import { ScreenProps } from '@screens/index';
 
 const NavLink:React.FC<ScreenProps> = ({
   icon, name, path

@@ -5,8 +5,7 @@ import Sidebar from './Sidebar';
 import { Box, Container } from '@mui/material';
 
 interface Props {
-  children: React.ReactNode,
-  logOut: () => void
+  children: React.ReactNode
 }
 
 const Root = styled('div')(({theme}) => ({
@@ -22,8 +21,7 @@ const Root = styled('div')(({theme}) => ({
 }));
 
 const Dashboard:React.FC<Props> = ({
-  children,
-  logOut
+  children
 }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const handleChangeSidebarState = () => setIsSidebarOpen(prev => !prev);
@@ -36,7 +34,7 @@ const Dashboard:React.FC<Props> = ({
           </Box>
         </Container>
       </Root>
-      <Navbar {...{logOut}} sidebarOnOpen={handleChangeSidebarState}/>
+      <Navbar sidebarOnOpen={handleChangeSidebarState}/>
       <Sidebar open={isSidebarOpen} onClose={() => setIsSidebarOpen(false)}/>
     </>
   )

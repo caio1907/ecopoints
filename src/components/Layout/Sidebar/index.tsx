@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Divider, Drawer, useMediaQuery } from '@mui/material';
-import screens from '../../../screens/Admin';
+import screens from '@screens/Admin';
 import NavLink from '../NavLink';
 import { Img } from './styles';
 import logo from '../../../assets/Logo EcoPoints.png';

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { AppBar, Box, IconButton, Toolbar, Tooltip, Typography } from '@mui/material';
-import * as Icon from '@mui/icons-material'
-import { loadCurrentUser } from '../../../utils/user';
-import { User } from 'firebase/auth';
+import * as Icon from '@mui/icons-material';
+import axiosBase from 'axios';
+import axios from '@services/axios';
+import User from '../../../types/User.type';
 
 interface Props {
-  logOut: () => void
   sidebarOnOpen: () => void
 }
 
@@ -16,14 +16,33 @@ const Root = styled(AppBar)(({ theme }: any) => ({
 }))
 
 const Navbar: React.FC<Props> = ({
-  logOut,
   sidebarOnOpen
 }) => {
   const [user, setUser] = useState<User>();
 
   useEffect(() => {
-    loadCurrentUser().then(result => result && setUser(result));
+    const query = {
+      query: 'query {me {firstName, lastName}}'
+    }
+    axios.post<{data: {me: User}}>('', query).then(response => setUser(response.data.data.me));
   }, []);
+
+  const logOut = () => {
+    const { VITE_API_URL } = import.meta.env;
+    const token = localStorage.getItem('token');
+    axiosBase.post(
+      `${VITE_API_URL ?? 'http://localhost/'}auth/logout`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    ).then(() => {
+      localStorage.removeItem('token');
+      window.dispatchEvent(new Event('storage'));
+    });
+  }
   return (
     <>
       <Root
@@ -55,7 +74,7 @@ const Navbar: React.FC<Props> = ({
           >
             <Icon.Menu fontSize='small' />
           </IconButton>
-          <Typography component='span'>Bem vindo(a) {user?.displayName}</Typography>
+          <Typography component='span'>Bem vindo(a) {`${user?.firstName} ${user?.lastName}`}</Typography>
           <Box sx={{ flexGrow: 1 }} />
           <Tooltip title='Sair'>
             <IconButton sx={{ ml: 1 }} onClick={logOut}>

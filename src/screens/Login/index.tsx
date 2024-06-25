@@ -1,14 +1,12 @@
-import React, { useEffect } from 'react';
-import { setLoading } from '../../utils/loadingState';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import React from 'react';
 import { toast } from 'react-toastify';
-import { auth } from '../../services/firebase';
-import { translateMessageErrorToPTBR } from '../../utils/messageErrorsFirebase';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { redirect } from 'react-router-dom';
 import { Box, TextField, Typography } from '@mui/material';
+import axios from 'axios';
+
 import { Button, Form } from './style';
+import { setLoading } from '@contexts/loadingState';
 
 interface IData {
   email: string,
@@ -16,12 +14,6 @@ interface IData {
 }
 
 const Login: React.FC = () => {
-  useEffect(() => {
-    if (auth.currentUser?.uid) {
-      redirect('/');
-    }
-  }, []);
-
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -44,13 +36,22 @@ const Login: React.FC = () => {
   const signIn = ({ email, password }: IData) => {
     setLoading(true);
     toast.dismiss();
-    signInWithEmailAndPassword(auth, email, password).then(() => {
-      setLoading(false)
+
+    const { VITE_API_URL } = import.meta.env;
+
+    axios.post(`${VITE_API_URL ?? 'http://localhost/'}auth/login`, { email, password }).then(response => {
+      const { data } = response;
+      if (data.token) {
+        localStorage.setItem('token', data.token);
+        window.dispatchEvent(new Event('storage'));
+        setLoading(false);
+      }
     }).catch(error => {
-      toast.error(translateMessageErrorToPTBR(error.code) ?? error.message);
-      setLoading(false)
+      setLoading(false);
+      console.log(error)
+      toast.error(error.response.data.message);
       formik.setSubmitting(false);
-    })
+    });
   }
 
   return (

@@ -1,7 +1,7 @@
 import { Backdrop } from '@mui/material';
 import { CircularProgress } from "@mui/material";
 import { useSelector } from 'react-redux';
-import { getLoader } from '../../store/Loader.store';
+import { getLoader } from '@store/Loader.store';
 
 const Loader: React.FC = () => {
   const loading = useSelector(getLoader).show;
