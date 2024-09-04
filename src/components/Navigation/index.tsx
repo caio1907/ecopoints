@@ -6,6 +6,7 @@ import { AppBar, Box, IconButton, Toolbar, Typography } from '@mui/material';
 const Navigation: React.FC = () => {
   const Link = (path: string, name: string) => (
     <Typography
+      component={NavLink}
       sx={{
         transition: 'all 0.1s ease-in-out',
         ':hover': {
@@ -17,7 +18,6 @@ const Navigation: React.FC = () => {
           boxShadow: '0px 1px 0px #FAFFF9'
         }
       }}
-      component={NavLink}
       variant='body1'
       color='#EAF6EA'
       to={path}>
@@ -31,8 +31,9 @@ const Navigation: React.FC = () => {
           <img src={logoEcoPoint} alt='Ecopoint' className='logo'style={{maxWidth: 40}}/>
         </IconButton>
         <Box display='flex' flexGrow={1} gap={2}>
-          {Link('/','Home')}
-          {Link('/mapa','Mapa')}
+          {Link('/', 'Home')}
+          {Link('/mapa', 'Mapa')}
+          {Link('/admin', 'Área do cliente')}
         </Box>
       </Toolbar>
     </AppBar>
